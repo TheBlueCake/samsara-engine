@@ -19,14 +19,30 @@ const attack = (entity, target) => {
   target.fireEvent('take-damage', { amount: damage });
 
   if (target.health.current <= 0) {
+    if (entity.description.name === 'Neo') {
+      addLog(
+        `You strike the ${target.description.name} for ${damage} damage and banish it!`
+      );
+    }
+    if (entity.description.name !== 'Neo') {
+      addLog(
+      `${entity.description.name} fatally strikes you for ${damage} damage.`
+    );
+  }
+}
+  if (entity.description.name === 'Neo') {
     addLog(
-      `${entity.description.name} kicked a ${target.description.name} for ${damage} damage and killed it!`
+      `You strike the ${target.description.name} for ${damage} damage.`
     );
   }
 
-  addLog(
-    `${entity.description.name} kicked ${target.description.name} for ${damage} damage!`
-  );
+  if (entity.description.name !== 'Neo') {
+    if (target.description.name === 'Neo') {
+      addLog(
+        `The ${entity.description.name} strikes you for ${damage} damage.`
+      );
+    };
+  }
 };
 
 export const movement = () => {
@@ -68,9 +84,11 @@ export const movement = () => {
         if (target.has(Health) && target.has(Defense)) {
           attack(entity, target);
         } else {
-          addLog(
-            `${entity.description.name} bump into a ${target.description.name}`
-          );
+          if (entity.description.name !== 'Neo') {
+            addLog(
+              `${entity.description.name} bumps into a ${target.description.name}.`
+            );
+          }
         }
       });
 

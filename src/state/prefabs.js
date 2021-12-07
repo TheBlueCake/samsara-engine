@@ -324,42 +324,42 @@ export const Player = {
     },
     {
       type: 'Description',
-      properties: { name: 'You' },
+      properties: { name: 'Neo' },
     },
     { type: 'Inventory' },
   ],
 };
 
-export const Goblin = {
-  name: 'Goblin',
+export const Desire = {
+  name: 'Desire',
   inherit: ['Being'],
   components: [
     { type: 'Ai' },
     {
       type: 'Appearance',
-      properties: { char: 'g', color: 'green' },
+      properties: { char: '&', color: 'red' },
     },
     {
       type: 'Description',
-      properties: { name: 'goblin' },
+      properties: { name: 'Desire' },
     },
     { type: 'Power', properties: { base: 2, current: 2 } },
     { type: 'Health', properties: { base: 7, current: 7 } },
   ],
 };
 
-export const GoblinWarrior = {
-  name: 'GoblinWarrior',
+export const GreaterDesire = {
+  name: 'Greater Desire',
   inherit: ['Being'],
   components: [
     { type: 'Ai' },
     {
       type: 'Appearance',
-      properties: { char: 'w', color: 'green' },
+      properties: { char: '@', color: 'red' },
     },
     {
       type: 'Description',
-      properties: { name: 'goblin warrior' },
+      properties: { name: 'Greater Desire' },
     },
     { type: 'Defense', properties: { base: 2, current: 2 } },
     { type: 'Power', properties: { base: 4, current: 4 } },

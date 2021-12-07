@@ -1,15 +1,3 @@
-# Gobs O' Goblins
+# Samsara Engine
 
-[Play game in browser](https://dcazrael.github.io/gobs-o-goblins/)
-
-[Want to make a roguelike like this? Follow the tutorial!](https://github.com/dcazrael/jsrlt)
-
-## Scripts
-
-`npm start` Run the app local with webpack dev server on port 8080.
-
-`npm test` Run all tests
-
-`npm run preprod` Build the application and serve locally on port 1234
-
-`npm run deploy` Build application and deploy to github pages
+[Play game in browser](https://thebluecake.github.io/samsara-engine/)

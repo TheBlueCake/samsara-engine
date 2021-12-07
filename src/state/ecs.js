@@ -39,8 +39,8 @@ import {
   Chest,
   Floor,
   Gear,
-  Goblin,
-  GoblinWarrior,
+  Desire,
+  GreaterDesire,
   HealthPotion,
   Helmet,
   Item,
@@ -118,8 +118,8 @@ ecs.registerPrefab(Shield);
 ecs.registerPrefab(Weapon);
 
 // enemies
-ecs.registerPrefab(Goblin);
-ecs.registerPrefab(GoblinWarrior);
+ecs.registerPrefab(Desire);
+ecs.registerPrefab(GreaterDesire);
 
 // player
 ecs.registerPrefab(Player);

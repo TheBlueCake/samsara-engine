@@ -31,7 +31,7 @@ export const MAX_MONSTERS_BY_FLOOR = {
 };
 
 export const MONSTER_WEIGHT = {
-  0: [{ name: 'Goblin', weight: 80 }],
+  0: [{ name: 'Desire', weight: 80 }],
   3: [{ name: 'GoblinWarrior', weight: 15 }],
   5: [{ name: 'GoblinWarrior', weight: 30 }],
   7: [{ name: 'GoblinWarrior', weight: 60 }],

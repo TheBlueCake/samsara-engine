@@ -33,7 +33,7 @@ import { movement } from './systems/movement';
 import { render } from './systems/render';
 import { targeting } from './systems/targeting';
 
-export let messageLog = ['', "Welcome to Gobs 'O Goblins!", ''];
+export let messageLog = ['', "You remember that your name is Neo.", "You wake in the strange prison of Samsara.", ''];
 export const addLog = (text) => {
   messageLog.unshift(text);
 };
@@ -86,7 +86,7 @@ const newGame = () => {
   gameState = 'GAME';
   selectedInventoryIndex = 0;
 
-  messageLog = ['', "Welcome to Gobs 'O Goblins!", ''];
+  messageLog = ['', "You remember that your name is Neo.", "You wake in the strange prison of Samsara.", ''];
 
   initGame();
 };
