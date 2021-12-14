@@ -16,9 +16,9 @@ export const grid = {
   },
 
   messageLog: {
-    width: 79,
-    height: 3,
-    x: 21,
+    width: 80,
+    height: 4,
+    x: 20,
     y: 0,
   },
 

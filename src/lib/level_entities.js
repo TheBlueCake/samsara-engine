@@ -23,11 +23,11 @@ export const ITEM_WEIGHT = {
 
 export const MAX_MONSTERS_BY_FLOOR = {
   // floor: monsters
-  1: 3,
-  5: 6,
-  9: 9,
-  14: 12,
-  19: 15,
+  1: 6,
+  5: 9,
+  9: 12,
+  14: 15,
+  19: 18,
 };
 
 export const MONSTER_WEIGHT = {

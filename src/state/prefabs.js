@@ -365,3 +365,39 @@ export const GreaterDesire = {
     { type: 'Power', properties: { base: 4, current: 4 } },
   ],
 };
+
+export const Morpheus = {
+  name: 'Morpheus',
+  inherit: ['Being'],
+  components: [
+    {
+      type: 'Appearance',
+      properties: { char: '@', color: 'green' },
+    },
+    { type: 'IsTalkable',
+    properties: { dialogueArray: ['Hello, Neo. It seems you\'ve forgotten your memories. My name is Morpheus.', 'This place is called Samsara.', 'It\'s a nigh-inescapable prison guarded by the Desires, agents of suffering.', 'I\'ve heard the only way to leave is by following the Eightfold Path.', 'I\'ll give you the two pieces I have:', 'The Right View, which allows you to see Desires,', 'and the Right Effort, which allows you to banish them.', 'To reach Nirvana, you\'ll have to find the other six on your own.', 'If you find a bodhisattva, they\'ll teach you a piece of the Path.', 'Good luck on your journey, Neo.'] },
+    },
+    {
+      type: 'Description',
+      properties: { name: 'Morpheus, your mentor from the Matrix and first bodhisattva.' },
+    },
+    { type: 'Defense', properties: { base: 9999, current: 9999 } },
+  ],
+};
+
+export const Bodhisattva = {
+  name: 'Bodhisattva',
+  inherit: ['Being'],
+  components: [
+    {
+      type: 'Appearance',
+      properties: { char: '@', color: 'green' },
+    },
+    { type: 'IsTalkable' },
+    {
+      type: 'Description',
+      properties: { name: 'A wandering bodhisattva.' },
+    },
+    { type: 'Defense', properties: { base: 9999, current: 9999 } },
+  ],
+};

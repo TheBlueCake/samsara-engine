@@ -4,6 +4,7 @@ import { readCacheSet } from '../state/cache';
 import {
   Defense,
   Health,
+  IsTalkable,
   Move,
   Paralyzed,
   Position,
@@ -81,15 +82,24 @@ export const movement = () => {
     if (blockers.length) {
       blockers.forEach((eId) => {
         const target = world.getEntity(eId);
-        if (target.has(Health) && target.has(Defense)) {
+        if (target.has(Health) && target.has(Defense) && !target.has(IsTalkable)) {
           attack(entity, target);
         } else {
-          if (entity.description.name !== 'Neo') {
+          if (entity.description.name !== 'Neo' && !target.has(IsTalkable)) {
             addLog(
               `${entity.description.name} bumps into a ${target.description.name}.`
             );
+          } else {
+            if (target.has(IsTalkable)) {
+              addLog(target.isTalkable.dialogueArray[target.isTalkable.dialogueIndex]);
+              target.isTalkable.dialogueIndex++;
+              if (target.isTalkable.dialogueIndex == target.isTalkable.dialogueArray.length) {
+                target.remove(target.isBlocking);
+                target.isTalkable.dialogueIndex = 0;
+              }
+            };
           }
-        }
+        };
       });
 
       entity.remove(entity.move);

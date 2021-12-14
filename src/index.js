@@ -24,6 +24,19 @@ import {
   Target,
   TargetingItem,
 } from './state/components';
+import {
+  music1,
+  music2,
+  music3,
+  music4,
+  music5,
+  music6,
+  music7,
+  music8,
+  music9,
+  music10,
+  music11,
+} from './state/sounds';
 import world from './state/ecs';
 import { ai } from './systems/ai';
 import { animation } from './systems/animation';
@@ -129,18 +142,22 @@ const initGame = () => {
   });
 
   player = world.createPrefab('Player');
+  const morpheus = world.createPrefab('Morpheus');
 
   addCache(`floors.${-1}`, {
     stairsDown: toLocId(stairsDown.position),
   });
 
   const playerSpawn = stairsUp ? stairsUp.position : getOpenTiles(dungeon);
+  const morpheusSpawn = stairsUp ? stairsUp.position : getOpenTiles(dungeon);
 
   player.add(Position, playerSpawn);
-
+  morpheus.add(Position, morpheusSpawn);
+  
   fov(player);
   render(player);
 };
+
 
 let player = {};
 let userInput = null;
@@ -162,6 +179,7 @@ const processUserInput = () => {
   }
 
   if (userInput === 'n') {
+    music1.play();
     newGame();
   }
 
@@ -175,10 +193,11 @@ const processUserInput = () => {
         toLocId(player.position) !==
         readCache(`floors.${readCache('z')}.stairsDown`)
       ) {
-        addLog('There are no stairs to descend');
+        addLog('There are no stairs to descend.');
+      } else {
+        addLog('You descend deeper into the floors of Samsara.');
+        goToDungeonLevel(readCache('z') - 1);
       }
-      addLog('You descend deeper into the dungeon');
-      goToDungeonLevel(readCache('z') - 1);
     }
 
     if (userInput === '<') {
@@ -186,23 +205,36 @@ const processUserInput = () => {
         toLocId(player.position) !==
         readCache(`floors.${readCache('z')}.stairsUp`)
       ) {
-        addLog('There are no stairs to climb');
+        addLog('There are no stairs to climb.');
+      } else {
+        addLog('You ascend to another floor of Samsara.');
+        goToDungeonLevel(readCache('z') + 1);
       }
-      addLog('You climb from the depths of the dungeon');
-      goToDungeonLevel(readCache('z') + 1);
     }
 
-    if (userInput === 'ArrowUp') {
+    if (userInput === 'ArrowUp' || userInput === '8' ) {
       player.add(Move, { x: 0, y: -1, z: readCache('z') });
     }
-    if (userInput === 'ArrowRight') {
+    if (userInput === 'ArrowRight' || userInput === '6' ) {
       player.add(Move, { x: 1, y: 0, z: readCache('z') });
     }
-    if (userInput === 'ArrowDown') {
+    if (userInput === 'ArrowDown' || userInput === '2' ) {
       player.add(Move, { x: 0, y: 1, z: readCache('z') });
     }
-    if (userInput === 'ArrowLeft') {
+    if (userInput === 'ArrowLeft' || userInput === '4' ) {
       player.add(Move, { x: -1, y: 0, z: readCache('z') });
+    }
+    if (userInput === '7') {
+      player.add(Move, { x: -1, y: -1, z: readCache('z') });
+    }
+    if (userInput === '9') {
+      player.add(Move, { x: 1, y: -1, z: readCache('z') });
+    }
+    if (userInput === '1') {
+      player.add(Move, { x: -1, y: 1, z: readCache('z') });
+    }
+    if (userInput === '3') {
+      player.add(Move, { x: 1, y: 1, z: readCache('z') });
     }
     if (userInput === 'g') {
       let pickupFound = false;

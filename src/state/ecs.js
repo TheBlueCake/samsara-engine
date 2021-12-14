@@ -20,6 +20,7 @@ import {
   IsOpaque,
   IsPickup,
   IsRevealed,
+  IsTalkable,
   Layer100,
   Layer300,
   Layer400,
@@ -41,6 +42,8 @@ import {
   Gear,
   Desire,
   GreaterDesire,
+  Morpheus,
+  Bodhisattva,
   HealthPotion,
   Helmet,
   Item,
@@ -79,6 +82,7 @@ ecs.registerComponent(IsInFov);
 ecs.registerComponent(IsOpaque);
 ecs.registerComponent(IsPickup);
 ecs.registerComponent(IsRevealed);
+ecs.registerComponent(IsTalkable);
 ecs.registerComponent(Layer100);
 ecs.registerComponent(Layer300);
 ecs.registerComponent(Layer400);
@@ -120,6 +124,10 @@ ecs.registerPrefab(Weapon);
 // enemies
 ecs.registerPrefab(Desire);
 ecs.registerPrefab(GreaterDesire);
+
+//npcs
+ecs.registerPrefab(Morpheus);
+ecs.registerPrefab(Bodhisattva);
 
 // player
 ecs.registerPrefab(Player);

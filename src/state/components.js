@@ -184,6 +184,10 @@ export class IsPickup extends Component {}
 
 export class IsRevealed extends Component {}
 
+export class IsTalkable extends Component {
+  static properties = { dialogueArray: [], dialogueIndex: 0, }
+}
+
 export class Layer100 extends Component {}
 
 export class Layer300 extends Component {}

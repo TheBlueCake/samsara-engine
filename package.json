@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "geotic": "4.1.6",
+    "howler": "2.2.3",
     "lodash": "4.17.21",
     "pathfinding": "0.4.18"
   }
